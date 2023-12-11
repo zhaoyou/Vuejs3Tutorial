@@ -1,6 +1,24 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import {ref} from 'vue'
+export default {
+  setup() {
 
+    const p  = ref(null)
+
+    console.log(p, p.value)
+
+    return {
+      name: ref('zhaoyou'),
+      age: '35',
+      p
+    }
+  },
+  data() {
+    return {
+      'title': 'Hellllllll'
+    }
+  }
+}
 
 </script>
 
@@ -13,10 +31,15 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a> -->
   <!-- </div> -->
+  <div>{{ name }} -- {{ age }}</div>
   <div>
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">About</router-link>
-    <router-link to="/user/hades">User</router-link>
+    <p ref="p">Hello {{ name }} -- {{ age }}</p>
+  </div>
+  <div>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link> |
+    <router-link to="/user/hades">User</router-link>|
+    <router-link to="/jobs">Jobs</router-link>
     <router-view></router-view>
   </div>
 </template>
